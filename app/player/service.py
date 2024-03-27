@@ -1,3 +1,4 @@
+import base64
 from itertools import cycle
 import eyed3
 from typing import Iterable
@@ -18,15 +19,21 @@ def get_audios() -> Iterable:
     return cycle(file_paths)
 
 
+def gen_path_audio(audios: Iterable) -> str:
+    for audio in audios:
+        yield audio
+
+
 def parse_audio(path: str) -> AudioSchema:
     audio_file = eyed3.load(path)
+    print(audio_file, '\n\n')
     artist_name = str(audio_file.tag.artist)
     name = str(audio_file.tag.title)
 
+    image_data = None
     if audio_file.tag.images:
-        image_data = audio_file.tag.images[0].image_data
-    else:
-        image_data = None
+        image_data = base64.b64encode(audio_file.tag.images[0].image_data).decode('utf-8')
+        # image_data = audio_file.tag.images[0].image_data  # ошибочка в неверном декодировании
 
     return AudioSchema(
         name=name,
@@ -34,3 +41,4 @@ def parse_audio(path: str) -> AudioSchema:
         img=image_data,
         path=path
     )
+

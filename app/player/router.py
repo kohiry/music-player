@@ -1,17 +1,16 @@
 from fastapi import APIRouter
 from fastapi import Request
-from fastapi.templating import Jinja2Templates
+
+from app.player.constants import templates, gen
 from app.player.schemas import AudioSchema
-from app.player.service import get_audios, parse_audio
+from app.player.service import parse_audio
 
 player = APIRouter(prefix='/player')
-
-templates = Jinja2Templates(directory="templates")
 
 
 @player.get('/api/next')
 def get_next() -> AudioSchema:
-    path_audio = next(get_audios())
+    path_audio: str = next(gen)
     answer = parse_audio(path_audio)
     return answer
 
