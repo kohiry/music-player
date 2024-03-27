@@ -161,7 +161,6 @@ body {
 }
 
 .inner_slider_bar {
-  width: 60%;
   height: 4px;
   background: radial-gradient(at top left, #c92711 0%, #ffc107 90%);
   margin: 0px 1px;
@@ -177,4 +176,12 @@ body {
 .description{
   line-height : 1.5;
   margin : 20px
+}
+
+body:first-of-type {
+    background-image: url('../images/back.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; /* чтобы изображение не повторялось */
+    background-position: top;
+    background-color: #f0f0f0; /* Замените на ваш цвет фона */
 }
