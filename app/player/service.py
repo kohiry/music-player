@@ -33,7 +33,6 @@ def parse_audio(path: str) -> AudioSchema:
     image_data = None
     if audio_file.tag.images:
         image_data = base64.b64encode(audio_file.tag.images[0].image_data).decode('utf-8')
-        # image_data = audio_file.tag.images[0].image_data  # ошибочка в неверном декодировании
 
     return AudioSchema(
         name=name,

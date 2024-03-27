@@ -24,7 +24,6 @@
     </script>
 </head>
 <body>
-<!-- partial:index.partial.html -->
 <body>
 
 <div>
@@ -46,7 +45,6 @@
             </div>
             <div class="slider_bar">
                 <div class="inner_slider_bar"></div>
-<!--                <input type="range" id="seekBar" min="0" value="0">-->
             </div>
 
         </div>
@@ -97,7 +95,6 @@ PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8v
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = Math.floor(seconds % 60);
 
-    // Добавляем ведущие нули, если минуты или секунды меньше 10
     const formattedMinutes = String(minutes).padStart(2, '0');
     const formattedSeconds = String(remainingSeconds).padStart(2, '0');
 
@@ -119,7 +116,6 @@ PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8v
         const audioPlayer = document.getElementById('audioPlayer');
         audioPlayer.src = '../' + audioData.path;
         audioPlayer.play();
-        // Обновлять ползунок перемотки каждую секунду
         const player = document.querySelector('.slider')
 
         const time = player.querySelector('.time')
@@ -135,7 +131,6 @@ PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8v
     }
 </script>
 </body>
-<!-- partial -->
 
 </body>
 </html>
